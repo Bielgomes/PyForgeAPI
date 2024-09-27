@@ -248,6 +248,7 @@ For production deployment, please refer to this **[uvicorn guide](https://www.uv
 ### Changed
 
 - [X] Change the routes handler to use the Raw Path instead of the Path (This Change allow the use of %20 %2F and other special characters in the path)
+- [X] Improve functionality to handle asynchronous functions in synchronous environments (This change probably fix Memory Leak in the Fastipy)
 
 # Contributors
 
