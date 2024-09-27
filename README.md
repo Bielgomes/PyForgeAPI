@@ -247,6 +247,8 @@ For production deployment, please refer to this **[uvicorn guide](https://www.uv
 
 ### Changed
 
+- [X] Change the routes handler to use the Raw Path instead of the Path (This Change allow the use of %20 %2F and other special characters in the path)
+
 # Contributors
 
 <a href="https://github.com/Bielgomes/Fastipy/graphs/contributors">

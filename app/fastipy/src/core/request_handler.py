@@ -89,7 +89,7 @@ class RequestHandler:
             return
 
         route, params = self._router.find_route(
-            scope["method"], scope["path"], return_params=True
+            scope["method"], scope["raw_path"], return_params=True
         )
         if route is None:
             await self._handle_route_not_found(send, cors)
