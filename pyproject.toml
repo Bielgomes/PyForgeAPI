@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "fastify"
+version = "1.5.3"
+description = "Fastipy is a fast and easy-to-use open source Python library for developing RESTful APIs. Inspired by the FastAPI and Fastify syntax and powered by uvicorn ASGI web server."
+authors = ["Bielgomes <bielgomesdasilva@hotmail.com>"]
+license = "GPL-3.0"
+readme = "README.md"
+homepage = "https://github.com/Bielgomes/Fastipy"
+repository = "https://github.com/Bielgomes/Fastipy"
+keywords = ["RESTful", "API", "ASGI", "FastAPI", "Fastify", "web server"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10.11"
+jinja2 = "^3.1.4"
+nest-asyncio = "^1.6.0"
+starlette = {extras = ["standard"], version = "^0.41.2"}
+uvicorn = "^0.32.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+black = "^24.10.0"
+isort = "^5.13.2"
+taskipy = "^1.14.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.taskipy.tasks]
+lint = "black --check --diff . && isort --check --diff ."
+pre_test = "task lint"
+test = "pytest -s -x --cov=fastify -vv"
+post_test = "coverage xml"

@@ -1,11 +1,11 @@
 from typing import TYPE_CHECKING, Callable, Dict, List, Union
 
-from .async_sync_helpers import run_async_or_sync
 from ..types.routes import FunctionType
+from .async_sync_helpers import run_async_or_sync
 
 if TYPE_CHECKING:
-    from ..core.request import Request
     from ..core.reply import Reply, RestrictReply
+    from ..core.request import Request
 
 
 async def handler_hooks(

@@ -1,5 +1,8 @@
+import io
 import json
-import os, io
+import os
+from http.cookies import SimpleCookie
+from time import perf_counter
 from typing import (
     AsyncGenerator,
     Callable,
@@ -8,24 +11,19 @@ from typing import (
     Generator,
     Iterator,
     List,
-    Self,
-    Union,
     Optional,
+    Self,
     Set,
+    Union,
 )
-from http.cookies import SimpleCookie
-from time import perf_counter
+
 from uvicorn.main import logger
 
-from ..types.routes import FunctionType
-
-from ..exceptions import FileException, ReplyException
-
 from ..classes.decorators_base import DecoratorsBase
-
-from ..helpers.route_helpers import handler_hooks, serializer_handler
+from ..exceptions import FileException, ReplyException
 from ..helpers.content_type import get_content_type
-
+from ..helpers.route_helpers import handler_hooks, serializer_handler
+from ..types.routes import FunctionType
 from .request import Request
 
 

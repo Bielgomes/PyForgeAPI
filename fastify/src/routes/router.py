@@ -1,4 +1,4 @@
-from typing import List, Literal, Optional, Dict, Tuple, Union
+from typing import Dict, List, Literal, Optional, Tuple, Union
 
 from ..types.routes import PrintTreeOptionsType
 

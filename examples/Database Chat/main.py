@@ -1,5 +1,6 @@
-from fastipy import Fastipy, Request, Reply, Database
 from jwt import JWTPlugin
+
+from fastipy import Database, Fastipy, Reply, Request
 
 app = Fastipy().cors()
 

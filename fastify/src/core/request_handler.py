@@ -2,12 +2,10 @@ import traceback
 from typing import Coroutine, Dict
 
 from ..exceptions import ExceptionHandler, FastipyException
-
-from ..helpers.route_helpers import handler_hooks, handler_middlewares
 from ..helpers.async_sync_helpers import run_async_or_sync
-
-from .request import Request
+from ..helpers.route_helpers import handler_hooks, handler_middlewares
 from .reply import Reply, RestrictReply
+from .request import Request
 
 
 class RequestHandler:

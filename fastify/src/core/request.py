@@ -1,13 +1,11 @@
-from typing import Union, Dict, Tuple, List
 from http.cookies import SimpleCookie
+from typing import Dict, List, Tuple, Union
 from urllib.parse import parse_qsl
 
-from ..types.routes import FunctionType
-
 from ..classes.decorators_base import DecoratorsBase
-
 from ..models.body import Body
 from ..models.form import Form
+from ..types.routes import FunctionType
 
 
 class Request(DecoratorsBase):

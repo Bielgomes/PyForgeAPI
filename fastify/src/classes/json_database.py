@@ -1,5 +1,6 @@
+import json
+import uuid
 from pathlib import Path
-import json, uuid
 
 
 class Database:

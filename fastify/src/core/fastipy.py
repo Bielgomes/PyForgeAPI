@@ -1,13 +1,31 @@
-import re, copy, click, nest_asyncio
+import copy
+import re
 from typing import Callable, Dict, List, Optional, Self, Union
+
+import click
+import nest_asyncio
 from uvicorn.main import logger
 
-from ..constants.hooks import HOOKS, hookType
-from ..constants.http_methods import HTTP_METHODS, httpMethodType
+from ..classes.decorators_base import DecoratorsBase
 from ..constants.decorators import DECORATORS
 from ..constants.events import EVENTS, eventType
+from ..constants.hooks import HOOKS, hookType
+from ..constants.http_methods import HTTP_METHODS, httpMethodType
 from ..constants.serializers import SERIALIZERS
-
+from ..exceptions import (
+    DecoratorAlreadyExistsException,
+    DuplicateRouteException,
+    InvalidPathException,
+    NoEventTypeException,
+    NoHookTypeException,
+    NoHTTPMethodException,
+    PluginException,
+)
+from ..helpers.async_sync_helpers import run_sync_or_async
+from ..middlewares.cors import CORSGenerator
+from ..routes.plugin_tree import PluginNode, PluginTree
+from ..routes.router import Router
+from ..types.fastipy import FastipyOptions
 from ..types.plugins import PluginOptions
 from ..types.routes import (
     FunctionType,
@@ -15,30 +33,9 @@ from ..types.routes import (
     RouteHookType,
     RouteMiddlewareType,
 )
-from ..types.fastipy import FastipyOptions
-
-from ..exceptions import (
-    InvalidPathException,
-    DuplicateRouteException,
-    NoHookTypeException,
-    NoHTTPMethodException,
-    DecoratorAlreadyExistsException,
-    NoEventTypeException,
-    PluginException,
-)
-
-from ..helpers.async_sync_helpers import run_sync_or_async
-
-from ..classes.decorators_base import DecoratorsBase
-from .request_handler import RequestHandler
-
-from .request import Request
 from .reply import Reply
-
-from ..routes.router import Router
-from ..routes.plugin_tree import PluginTree, PluginNode
-
-from ..middlewares.cors import CORSGenerator
+from .request import Request
+from .request_handler import RequestHandler
 
 
 class Fastipy(RequestHandler, DecoratorsBase):
