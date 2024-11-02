@@ -1,6 +1,12 @@
 import copy
 import re
-from typing import Callable, Dict, List, Optional, Self, Union
+import sys
+from typing import Callable, Dict, List, Optional, Union
+
+if sys.version_info < (3, 11):
+    from typing_extensions import Self
+else:
+    from typing import Self
 
 import click
 import nest_asyncio

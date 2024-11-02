@@ -1,6 +1,7 @@
 import io
 import json
 import os
+import sys
 from http.cookies import SimpleCookie
 from time import perf_counter
 from typing import (
@@ -12,10 +13,15 @@ from typing import (
     Iterator,
     List,
     Optional,
-    Self,
     Set,
     Union,
 )
+
+if sys.version_info < (3, 11):
+    from typing_extensions import Self
+else:
+    from typing import Self
+
 
 from uvicorn.main import logger
 
