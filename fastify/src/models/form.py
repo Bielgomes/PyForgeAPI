@@ -1,7 +1,6 @@
 from typing import TYPE_CHECKING, Dict
 
-from fastipy.src.helpers.content_type import get_content_type
-
+from ..helpers.content_type import get_content_type
 from .file import File
 
 if TYPE_CHECKING:
