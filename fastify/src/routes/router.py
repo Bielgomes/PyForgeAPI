@@ -138,7 +138,7 @@ class Router(RouteNode):
         """
 
         decoded_path = path.decode() if isinstance(path, bytes) else path
-        parts = decoded_path.split("/")
+        parts = decoded_path.split("?")[0].split("/")
         node = self
         params = {}
 
