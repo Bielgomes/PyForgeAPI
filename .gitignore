@@ -15,3 +15,6 @@ venv/
 # Tests
 .pytest_cache/
 .coverage
+
+# Distribution / packaging
+dist/
