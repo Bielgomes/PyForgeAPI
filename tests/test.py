@@ -1,6 +1,6 @@
 from pytest import fixture
 
-from fastify import TestClient
+from fastipy import TestClient
 
 from .api import app, reset
 

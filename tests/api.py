@@ -1,4 +1,4 @@
-from fastify import Fastipy, Reply, Request
+from fastipy import Fastipy, Reply, Request
 
 app = Fastipy().cors()
 
