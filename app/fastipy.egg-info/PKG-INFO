@@ -1,12 +1,36 @@
+Metadata-Version: 2.1
+Name: fastipy
+Version: 1.5.3
+Summary: Fastipy is a fast and easy-to-use open source Python library for developing RESTful APIs. Inspired by the FastAPI and Fastify syntax and powered by uvicorn ASGI web server.
+Home-page: https://github.com/Bielgomes/Fastipy
+Author: Bielgomes
+Author-email: bielgomesdasilva@hotmail.com
+License: GNU Affero General Public License v3
+Project-URL: Bug Tracker, https://github.com/Bielgomes/Fastipy/issues
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: uvicorn[standard]
+Requires-Dist: starlette
+Requires-Dist: nest-asyncio
+Requires-Dist: Jinja2
+
 # Fastipy
 
 <div>
   <img src="https://i.imgur.com/KCi8IUS.png">
 </div>
-
-[![CI](https://github.com/Bielgomes/fastipy/actions/workflows/pipeline.yaml/badge.svg)](https://github.com/Bielgomes/fastipy/actions/workflows/pipeline.yaml)
-[![codecov](https://codecov.io/gh/Bielgomes/fastipy/graph/badge.svg?token=AF45LFYAP2)](https://codecov.io/gh/Bielgomes/fastipy)
-[![PyPI version](https://badge.fury.io/py/fastipy.svg)](https://badge.fury.io/py/fastipy)
 
 ## What is it and what is it for
 
@@ -243,23 +267,16 @@ For production deployment, please refer to this **[uvicorn guide](https://www.uv
 
 # Change Log
 
-## Version 1.5.4
+## Version 1.5.3
 
 ### Todo
 
 ### Added
 
-- [X] CI with Github Actions.
-- [X] Code Coverage with Codecov.
-
 ### Changed
 
-- [X] Change the routes handler to use the Raw Path instead of the Path (This Change allow the use of %20 %2F and other special characters in the path).
-- [X] Improve functionality to handle asynchronous functions in synchronous environments (This change probably fix Memory Leak in the Fastipy).
-
-### Fixed
-
-- [X] Fix the bug in the search route where special characters are not being URL-escaped.
+- [X] Fixing and improving CORS header generation
+- [X] Fixing Reply class that didn't store decorators 
 
 # Contributors
 
