@@ -3,7 +3,7 @@ name = "fastify"
 version = "1.5.3"
 description = "Fastipy is a fast and easy-to-use open source Python library for developing RESTful APIs. Inspired by the FastAPI and Fastify syntax and powered by uvicorn ASGI web server."
 authors = ["Bielgomes <bielgomesdasilva@hotmail.com>"]
-license = "GPL-3.0"
+license = "GPLv3"
 readme = "README.md"
 homepage = "https://github.com/Bielgomes/Fastipy"
 repository = "https://github.com/Bielgomes/Fastipy"
@@ -12,7 +12,7 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Web Environment",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: GNU General Public License v3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -21,13 +21,17 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
+packages = [
+    { include = "./fastify/src", from = "." },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10.11"
+httpx = "^0.27.2"
 jinja2 = "^3.1.4"
+uvicorn = "^0.32.0"
 nest-asyncio = "^1.6.0"
 starlette = {extras = ["standard"], version = "^0.41.2"}
-uvicorn = "^0.32.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -48,6 +52,7 @@ profile = "black"
 line_length = 79
 
 [tool.taskipy.tasks]
+lint_fix = "black . && isort ."
 lint = "black --check --diff . && isort --check --diff ."
 pre_test = "task lint"
-test = "pytest -s -x --cov=fastify -vv"
+test = "pytest ./tests/test.py -s -x --cov=fastify -vv"
