@@ -22,8 +22,12 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 packages = [
-    { include = "./fastify/src", from = "." },
+    { include = "./fastify", from = "." },
 ]
+
+[tool.poetry.urls]
+"Code" = "https://github.com/Bielgomes/fastipy"
+"Bug tracker" = "https://github.com/Bielgomes/fastipy/issues"
 
 [tool.poetry.dependencies]
 python = "^3.10.11"
