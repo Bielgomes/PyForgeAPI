@@ -14,3 +14,4 @@ venv/
 
 # Tests
 .pytest_cache/
+.coverage
