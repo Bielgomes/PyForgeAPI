@@ -59,6 +59,12 @@ def test_hello_name(client):
     assert response.json() == {"message": "Hello, John!"}
 
 
+def test_hello_name_with_spaces(client):
+    response = client.get("/hello/John%2fWillian")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello, John%2fWillian!"}
+
+
 def test_hello_name_query(client):
     response = client.get("/hello?name=John")
     assert response.status_code == 200
