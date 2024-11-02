@@ -5,7 +5,7 @@ cffi==1.16.0
 charset-normalizer==3.3.2
 click==8.1.7
 cryptography==42.0.5
-Django==5.0.4
+Django==5.0.9
 docutils==0.21.1
 -e git+https://github.com/Bielgomes/Fastipy.git@004df0504bc265814b2d3e6aa2b5c3b9f167a35d#egg=fastipy
 h11==0.14.0
