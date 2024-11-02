@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fastipy"
-version = "1.5.3"
+version = "1.5.4"
 description = "Fastipy is a fast and easy-to-use open source Python library for developing RESTful APIs. Inspired by the FastAPI and Fastify syntax and powered by uvicorn ASGI web server."
 authors = ["Bielgomes <bielgomesdasilva@hotmail.com>"]
 license = "GPLv3"
