@@ -54,5 +54,5 @@ line_length = 79
 [tool.taskipy.tasks]
 lint_fix = "black . && isort ."
 lint = "black --check --diff . && isort --check --diff ."
-pre_test = "task lint"
+pre_test = "task"
 test = "pytest ./tests/test.py -s -x --cov=fastify -vv"

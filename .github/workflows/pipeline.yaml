@@ -21,5 +21,8 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
+      - name: Lint code
+        run: poetry run task lint
+
       - name: Run tests
         run: poetry run task test --cov-report=xml
