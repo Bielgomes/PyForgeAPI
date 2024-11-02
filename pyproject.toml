@@ -51,4 +51,3 @@ line_length = 79
 lint = "black --check --diff . && isort --check --diff ."
 pre_test = "task lint"
 test = "pytest -s -x --cov=fastify -vv"
-post_test = "coverage xml"
