@@ -1,4 +1,4 @@
-from typing import List, Literal, Optional, Dict, Tuple, Union
+from typing import Dict, List, Literal, Optional, Tuple, Union
 
 from ..types.routes import PrintTreeOptionsType
 
@@ -122,7 +122,7 @@ class Router(RouteNode):
     def find_route(
         self,
         method: Literal["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
-        path: str,
+        path: Union[str, bytes],
         return_params: bool = False,
     ) -> Union[Tuple[Optional[Dict[str, any]], dict], Optional[Dict[str, any]]]:
         """
@@ -130,14 +130,15 @@ class Router(RouteNode):
 
         Args:
             method (Literal["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"]): The HTTP method.
-            path (str): The path of the route.
+            path (Union[str, bytes]): The path of the route.
             return_params (bool): Whether to return parameters along with the route. Defaults to False.
 
         Returns:
             Union[Tuple[Optional[Dict[str, any]], dict], Optional[Dict[str, any]]]: The route and parameters (if return_params is True).
         """
 
-        parts = path.split("/")
+        decoded_path = path.decode() if isinstance(path, bytes) else path
+        parts = decoded_path.split("?")[0].split("/")
         node = self
         params = {}
 

@@ -1,6 +1,6 @@
-from fastipy import Fastipy, Request, Reply
-
 import json
+
+from fastipy import Fastipy, Reply, Request
 
 app = Fastipy()
 

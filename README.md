@@ -4,6 +4,10 @@
   <img src="https://i.imgur.com/KCi8IUS.png">
 </div>
 
+[![CI](https://github.com/Bielgomes/fastipy/actions/workflows/pipeline.yaml/badge.svg)](https://github.com/Bielgomes/fastipy/actions/workflows/pipeline.yaml)
+[![codecov](https://codecov.io/gh/Bielgomes/fastipy/graph/badge.svg?token=AF45LFYAP2)](https://codecov.io/gh/Bielgomes/fastipy)
+[![PyPI version](https://badge.fury.io/py/fastipy.svg)](https://badge.fury.io/py/fastipy)
+
 ## What is it and what is it for
 
 [Fastipy](https://pypi.org/project/Fastipy/) is a fast and easy-to-use open source Python library for developing RESTful APIs.
@@ -239,16 +243,23 @@ For production deployment, please refer to this **[uvicorn guide](https://www.uv
 
 # Change Log
 
-## Version 1.5.3
+## Version 1.5.4
 
 ### Todo
 
 ### Added
 
+- [X] CI with Github Actions.
+- [X] Code Coverage with Codecov.
+
 ### Changed
 
-- [X] Fixing and improving CORS header generation
-- [X] Fixing Reply class that didn't store decorators 
+- [X] Change the routes handler to use the Raw Path instead of the Path (This Change allow the use of %20 %2F and other special characters in the path).
+- [X] Improve functionality to handle asynchronous functions in synchronous environments (This change probably fix Memory Leak in the Fastipy).
+
+### Fixed
+
+- [X] Fix the bug in the search route where special characters are not being URL-escaped.
 
 # Contributors
 

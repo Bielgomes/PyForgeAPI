@@ -1,5 +1,6 @@
 import os
-from typing import Any, Optional, Dict, Collection
+from typing import Any, Collection, Dict, Optional
+
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 

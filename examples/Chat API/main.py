@@ -1,7 +1,7 @@
-from fastipy import Fastipy, Request, Reply
-
-import json
 import datetime
+import json
+
+from fastipy import Fastipy, Reply, Request
 
 app = Fastipy().cors()
 

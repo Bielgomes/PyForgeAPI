@@ -1,9 +1,13 @@
-import uuid, json, io, os
+import io
+import json
+import os
+import uuid
 from typing import Optional
+
 from uvicorn.main import logger
 
-from ..helpers.content_type import get_extension
 from ..exceptions import FileException
+from ..helpers.content_type import get_extension
 
 
 class File:

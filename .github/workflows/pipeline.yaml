@@ -1,0 +1,31 @@
+name: Pipeline
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: ✨ Code style, file formatting, and tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install poetry && poetry install
+
+      - name: Style checks
+        run: poetry run task lint
+
+      - name: Run tests
+        run: poetry run task test --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

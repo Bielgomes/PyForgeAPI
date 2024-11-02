@@ -1,10 +1,10 @@
-from typing import Callable, Coroutine, Union
 import sys
+from typing import Callable, Coroutine, Union
 
 if sys.version_info < (3, 11):
-    from typing_extensions import TypedDict, NotRequired, List, Callable
+    from typing_extensions import Callable, List, NotRequired, TypedDict
 else:
-    from typing import TypedDict, NotRequired, List, Callable
+    from typing import Callable, List, NotRequired, TypedDict
 
 FunctionType = Union[Callable, Coroutine]
 

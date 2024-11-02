@@ -1,5 +1,5 @@
-from typing import Union
 import json
+from typing import Union
 
 from .form import Form
 

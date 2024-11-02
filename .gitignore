@@ -6,6 +6,15 @@ __pycache__/
 .vscode
 .env
 .pypirc
+.python-version
+poetry.lock
 
 # Virtual Environments
 venv/
+
+# Tests
+.pytest_cache/
+.coverage
+
+# Distribution / packaging
+dist/

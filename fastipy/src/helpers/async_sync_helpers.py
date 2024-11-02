@@ -20,15 +20,18 @@ def run_sync_or_async(
         Exception or None: If an error occurs during execution, returns the exception; otherwise, returns None.
     """
     if asyncio.iscoroutinefunction(function):
-        loop = asyncio.get_event_loop()
         try:
-            loop.run_until_complete(
-                asyncio.wait_for(function(*args, **kwargs), timeout=timeout)
-            )
+            coro = asyncio.wait_for(function(*args, **kwargs), timeout=timeout)
+            asyncio.run(coro)
         except (asyncio.TimeoutError, asyncio.CancelledError) as error:
             return error
+        except Exception as general_error:
+            return general_error
     else:
-        function(*args, **kwargs)
+        try:
+            function(*args, **kwargs)
+        except Exception as general_error:
+            return general_error
 
 
 async def run_async_or_sync(function: FunctionType, *args, **kwargs) -> None:

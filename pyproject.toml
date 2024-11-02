@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "fastipy"
+version = "1.5.4"
+description = "Fastipy is a fast and easy-to-use open source Python library for developing RESTful APIs. Inspired by the FastAPI and Fastify syntax and powered by uvicorn ASGI web server."
+authors = ["Bielgomes <bielgomesdasilva@hotmail.com>"]
+license = "GPLv3"
+readme = "README.md"
+homepage = "https://github.com/Bielgomes/Fastipy"
+repository = "https://github.com/Bielgomes/Fastipy"
+keywords = ["RESTful", "API", "ASGI", "FastAPI", "Fastipy", "web server"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+packages = [
+    { include = "./fastipy", from = "." },
+]
+
+[tool.poetry.urls]
+"Code" = "https://github.com/Bielgomes/fastipy"
+"Bug tracker" = "https://github.com/Bielgomes/fastipy/issues"
+
+[tool.poetry.dependencies]
+python = "^3.10.11"
+httpx = "^0.27.2"
+jinja2 = "^3.1.4"
+uvicorn = "^0.32.0"
+nest-asyncio = "^1.6.0"
+starlette = {extras = ["standard"], version = "^0.41.2"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+black = "^24.10.0"
+isort = "^5.13.2"
+taskipy = "^1.14.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.taskipy.tasks]
+lint_fix = "black . && isort ."
+lint = "black --check --diff . && isort --check --diff ."
+test = "pytest ./tests/test.py -s -x --cov=fastipy -vv"
