@@ -26,7 +26,6 @@ packages = [
 ]
 
 [tool.poetry.urls]
-"Code" = "https://github.com/Bielgomes/fastipy"
 "Bug tracker" = "https://github.com/Bielgomes/fastipy/issues"
 
 [tool.poetry.dependencies]
