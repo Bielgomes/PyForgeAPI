@@ -1,6 +1,5 @@
-from pytest import fixture
-from pytest import mark
 from httpx import AsyncClient
+from pytest import fixture, mark
 
 from fastipy import TestClient
 
