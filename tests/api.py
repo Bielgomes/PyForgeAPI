@@ -43,3 +43,24 @@ async def index(request: Request, reply: Reply):
 async def index(request: Request, reply: Reply):
     name = request.query.get("name", None)
     await reply.send({"message": f"Hello, {name}!"})
+
+
+@app.get("/plain-text")
+async def index(_: Request, reply: Reply):
+    await reply.send("Hello, World!")
+
+
+@app.get("/html")
+async def index(_: Request, reply: Reply):
+    await reply.header("Content-Type", "text/html").send("<h1>Hello, World!</h1>")
+
+
+@app.get("/stream")
+async def index(_: Request, reply: Reply):
+    message = "Hello, World!"
+
+    async def generator():
+        for char in message:
+            yield char
+
+    await reply.send(generator())
