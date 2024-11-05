@@ -470,7 +470,7 @@ class Fastipy(RequestHandler, DecoratorsBase):
             )
 
         if (
-            not re.fullmatch(r"^(\/:?[_a-zA-Z0-9]+)*$|^\/$", path)
+            not re.fullmatch(r"^(\/:?[_a-zA-Z0-9]+(-?[_a-zA-Z0-9]+)*)*$|^\/$", path)
             or re.search(r":(\d)\w+", path)
             or len(re.findall(r":(\w+)", path)) != len(set(re.findall(r":(\w+)", path)))
         ):
